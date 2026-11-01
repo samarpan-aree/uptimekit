@@ -2,7 +2,7 @@
 
 **Self-hosted API uptime and latency monitoring. FastAPI + React + SQLite, no external services.**
 
-[![CI](https://github.com/ROYAL-SMP/uptimekit/actions/workflows/ci.yml/badge.svg)](https://github.com/ROYAL-SMP/uptimekit/actions/workflows/ci.yml)
+[![CI](https://github.com/samarpan-aree/uptimekit/actions/workflows/ci.yml/badge.svg)](https://github.com/samarpan-aree/uptimekit/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.10%E2%80%933.12-blue)](https://www.python.org/)
 [![React](https://img.shields.io/badge/react-18-61dafb)](https://react.dev/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
