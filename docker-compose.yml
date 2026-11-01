@@ -1,0 +1,20 @@
+services:
+  api:
+    build: ./backend
+    ports: ["8000:8000"]
+    environment:
+      UPTIMEKIT_DB: /data/uptimekit.db
+    volumes:
+      - uptime-data:/data
+
+  web:
+    image: node:20-alpine
+    working_dir: /app
+    command: sh -c "npm ci && npm run dev -- --host 0.0.0.0"
+    ports: ["5173:5173"]
+    volumes:
+      - ./frontend:/app
+    depends_on: [api]
+
+volumes:
+  uptime-data:
