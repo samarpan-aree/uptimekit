@@ -43,3 +43,37 @@ cd frontend && npm install && npm run dev
 ```
 
 Vite proxies `/api` to port 8000, so there is no CORS setup in development.
+
+## Run a probe
+
+```bash
+curl -X POST localhost:8000/api/monitors -H 'Content-Type: application/json' \
+  -d '{"name":"Payments API","url":"https://api.example.com/health","interval_s":300}'
+
+curl -X POST localhost:8000/api/monitors/1/check
+curl localhost:8000/api/monitors/1
+```
+
+## Documentation
+
+- **[API reference](docs/API.md)** — every endpoint, the response shape, validation rules, badge format
+- **[Architecture](docs/ARCHITECTURE.md)** — layer boundaries, design decisions, testing strategy
+
+## Development
+
+```bash
+cd backend  && pip install -e ".[dev]" && pytest --cov=app
+cd frontend && npm install && npm test && npm run build
+```
+
+## Roadmap
+
+- [ ] Background scheduler worker that polls due monitors on their interval
+- [ ] Alerting hooks — webhook and email on state transitions
+- [ ] Response-time charts per monitor (7-day window)
+- [ ] Retention policy with configurable history pruning
+- [ ] Prometheus metrics endpoint
+
+## License
+
+MIT — see [LICENSE](LICENSE).
